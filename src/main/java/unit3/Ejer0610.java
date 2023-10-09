@@ -57,8 +57,8 @@ public class Ejer0610 {
                 
                 if (numMes>=1 && numMes<=12) {
                     
-                    String nomMes = Month.of(numMes).getDisplayName(TextStyle.FULL, locale);
-                    System.out.println(numMes + " es un mes válido correspondiente a " + nomMes);
+                    String nombreMes = Month.of(numMes).getDisplayName(TextStyle.FULL, locale);
+                    System.out.println(numMes + " es un mes válido correspondiente a " + nombreMes);
                     
                 } else{
                     System.out.println(numMes + " no es un mes válido");
