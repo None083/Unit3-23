@@ -35,7 +35,7 @@ public class EjerClase1710 {
 //        do{
 //            System.out.println("Introduce un número entero");
 //            num = teclado.nextInt();
-//            suma = suma + num;
+//            suma += num;
 //            
 //        }while(num != 0);
 //        
@@ -58,7 +58,7 @@ public class EjerClase1710 {
             }else{
                 System.out.println("El número " + numTeclado + " es impar");
             }
-            aux = aux + numTeclado;
+            aux += numTeclado;
         }
         
         System.out.println("La suma total es " + aux);
