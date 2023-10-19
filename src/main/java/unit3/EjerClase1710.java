@@ -13,12 +13,12 @@ import java.util.Scanner;
 public class EjerClase1710 {
 
     /**
-     * Solicitar números enteros al usuario hasta que ponga 0
+     * 1.Solicitar números enteros al usuario hasta que ponga 0
      * Mostrar la suma de los números introducidos
      * 
      * 
      * 
-     * Solicitar al usuario un número concreto de números que debe introducir. 
+     * 2.Solicitar al usuario un número concreto de números que debe introducir. 
      * El programa pedirá al usuario esa cantidad de números, uno a uno, 
      * y dirá si el número introducido es par, impar. 
      * Al terminar debe calcular la media aritmética.
@@ -29,19 +29,41 @@ public class EjerClase1710 {
         
         
         //ejer 1
-        int num = 1;
-        int aux;
-        int suma;
+//        int num = 1;
+//        int suma= 0;
+//        
+//        do{
+//            System.out.println("Introduce un número entero");
+//            num = teclado.nextInt();
+//            suma = suma + num;
+//            
+//        }while(num != 0);
+//        
+//        System.out.println("La suma es: " + suma);
         
-        do{
-            aux = num;
-            System.out.println("Introduce un número entero");
-            num = teclado.nextInt();
-            suma = aux + num;
+        
+        
+        //ejer 2
+        System.out.println("¿Cuántos números quieres introducir?");
+        int contador = teclado.nextInt();
+        
+        int aux = 0;
+        
+        for (int i = 0; i < contador; i++) {
+            System.out.println("Introduce un número");
+            int numTeclado = teclado.nextInt();
             
-        }while(num != 0);
+            if(numTeclado%2==0){
+                System.out.println("El número " + numTeclado + " es par");
+            }else{
+                System.out.println("El número " + numTeclado + " es impar");
+            }
+            aux = aux + numTeclado;
+        }
         
-        System.out.println("La suma es: " + (suma-1));
+        System.out.println("La suma total es " + aux);
+        
+        
         
     }
     
