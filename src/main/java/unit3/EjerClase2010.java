@@ -48,18 +48,14 @@ public class EjerClase2010 {
         String resultado;
         String nuevoIntento;
 
-        System.out.println("Adivina el número (100-200)");
-
         do {
             numMaquina = random.nextInt(100, 201);
-            teclado.nextInt();
 
             for (int i = 0; i < 4; i++) {
 
                 do {
                     System.out.println("Adivina el número (100-200)");
                     numAdivina = teclado.nextInt();
-                    teclado.nextInt();
                 } while (!(numAdivina>=100 && numAdivina<=200));
                 
                 resultado = (numAdivina == numMaquina) ? ("¡Lo has adivinado, ole!")
