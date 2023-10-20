@@ -22,18 +22,20 @@ public class EjerClase19102 {
         
         Scanner teclado = new Scanner(System.in);
         
-        
-        
         System.out.println("¿Cuanto vale el coche?");
         double precioCoche = teclado.nextDouble();
         
         System.out.println("¿En cuantos meses lo quieres pagar?");
         int numMeses = teclado.nextInt();
         
-        for (int i = 0; i < numMeses; i++) {
-            
+        double restoPago=precioCoche;
+        
+        for (int i = 1; i < numMeses; i++) {
+            restoPago = restoPago/2;
+            System.out.println("Pago nº" + i + " - Cantidad: " + restoPago);
         }
         
+        System.out.println("Pago nº" + numMeses + " - Cantidad: " + restoPago);
         //tema 3 estructura control Math-string-random leerlo, descargar repo
         
     }

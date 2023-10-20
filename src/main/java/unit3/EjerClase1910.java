@@ -67,7 +67,7 @@ public class EjerClase1910 {
             parImpar = ((num2 + num3) % 2 == 0) ? ("par") : ("impar");
             
             pinGuay = (num1 == num2) || (num1 == num3) || (num1 == num4) || (num2 == num3)
-                || (num2 == num4) || (num3 == num4) || (parImpar.equals("impar")) ? ("Pin caca") : ("Pin guay");
+                || (num2 == num4) || (num3 == num4) || (parImpar.equals("impar")) ? ("- Pin caca -") : ("- Pin guay -");
             System.out.println(pinGuay);
 
         } while ((num1 == num2) || (num1 == num3) || (num1 == num4) || (num2 == num3)
@@ -75,7 +75,6 @@ public class EjerClase1910 {
 
         System.out.println("La contraseña es: " + num1 + num2 + num3 + num4);
 
-        //ejer2
     }
 
 }
