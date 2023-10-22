@@ -4,6 +4,7 @@
  */
 package unit3;
 
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -19,24 +20,7 @@ public class EjerClase2010 {
      * mostrar mensaje informando, en caso contrario se debe ayudar al jugador
      * indicando si el número pensado es mayor o menor al que ha puesto. Una vez
      * finalizada la partida, se debe preguntar si quiere jugar otra vez.
-     * 
-     * 
-     * 
-     * 
-     * 
-     * En BurgerCrangeBurger están de promoción durante el fin de semana. 
-     * A cada cliente que se acerque a la caja a pagar su pedido de comida 
-     * basura le van a descontar unos euros para que pueda dedicarlos en ir 
-     * al dentista. Cada vez que un cliente se acerca a la caja, este debe 
-     * tirar un dado. Si la tirada es par, le descuentan un 25% del total 
-     * del pedido y si la tirada es impar, entonces debe sacar una bolita 
-     * de color de un saco. Si la bolita es blanca, no hay descuento, 
-     * si es roja le quitan un 12%
-     * 
-     * y si es amarilla un 5%.Soliicita al cliente que va a a pagar el 
-     * importe del pedido y muestra el descuento, la tirada del dado y 
-     * el color de la bolita, si es que tuvo que sacarla. Se debe preguntar 
-     * si hay más clientes, para proceder de igual forma.
+     *
      */
     public static void main(String[] args) {
 
@@ -44,33 +28,49 @@ public class EjerClase2010 {
         Random random = new Random();
 
         int numMaquina;
-        int numAdivina;
-        String resultado;
-        String nuevoIntento;
+        int numUsuario;
+        String nuevoJuego;
 
         do {
             numMaquina = random.nextInt(100, 201);
 
-            for (int i = 0; i < 4; i++) {
+            for (int i = 1; i <= 4; i++) {
 
                 do {
-                    System.out.println("Adivina el número (100-200)");
-                    numAdivina = teclado.nextInt();
-                } while (!(numAdivina>=100 && numAdivina<=200));
-                
-                resultado = (numAdivina == numMaquina) ? ("¡Lo has adivinado, ole!")
-                        : ("Otra vez será. Era el número %d").formatted(numMaquina);
-                System.out.println("Intento nº " + i + ":" + resultado);
 
-                if (resultado.equals("¡Lo has adivinado, ole!")) {
+                    try {
+                        System.out.println("Adivina el número (100-200)");
+                        numUsuario = teclado.nextInt();
+                    } catch (InputMismatchException ime) {
+                        teclado.nextLine();
+                        numUsuario = 0;
+                        System.out.println("Eso no es un NÚMERO");
+                    }
+                    if (!(numUsuario >= 100 && numUsuario <= 200)) {
+                        System.out.println("Número no válido, vuelve a intentar");
+                    }
+                    System.out.println("------------------------------------------------------------");
+                } while (!(numUsuario >= 100 && numUsuario <= 200));
+
+                if (numUsuario < numMaquina) {
+                    System.out.println("Intento " + i + "/4: El número es MAYOR al que has introducido");
+                } else if (numUsuario > numMaquina) {
+                    System.out.println("Intento " + i + "/4: El número es MENOR al que has introducido");
+                } else if (numUsuario == numMaquina) {
+                    System.out.println("Intento " + i + "/4: ¡Has acertado, olee!");
                     break;
                 }
+                System.out.println("------------------------------------------------------------");
             }
 
+            System.out.println("Era el número %d".formatted(numMaquina));
+            System.out.println("------------------------------------------------------------");
             System.out.println("¿Quieres jugar de nuevo? (S o N)");
-            nuevoIntento = teclado.nextLine();
+            teclado.nextLine();
+            nuevoJuego = teclado.nextLine();
+            System.out.println("------------------------------------------------------------");
 
-        } while (nuevoIntento.equalsIgnoreCase("s"));
+        } while (nuevoJuego.equalsIgnoreCase("s"));
 
     }
 
