@@ -26,7 +26,8 @@ public class EjerClase2010 {
 
         Scanner teclado = new Scanner(System.in);
         Random random = new Random();
-
+        
+        final int INTENTOS = 4;
         int numMaquina;
         int numUsuario;
         String nuevoJuego;
@@ -34,7 +35,7 @@ public class EjerClase2010 {
         do {
             numMaquina = random.nextInt(100, 201);
 
-            for (int i = 1; i <= 4; i++) {
+            for (int i = 1; i <= INTENTOS; i++) {
 
                 do {
 

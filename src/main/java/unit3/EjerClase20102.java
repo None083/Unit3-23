@@ -33,8 +33,8 @@ public class EjerClase20102 {
         Random random = new Random();
 
         final double DESCUENTO_PAR = 0.25;
-        final double BOLA_ROJA = 0.12;
-        final double BOLA_MARILLA = 0.05;
+        final double DESCUENTO_BOLA_ROJA = 0.12;
+        final double DESCUENTO_BOLA_MARILLA = 0.05;
         double precioInicial;
         double precioFinal = 0;
         int numDado;
@@ -61,11 +61,11 @@ public class EjerClase20102 {
                     }
                     case 2 -> {
                         System.out.println("Ha salido el ROJO, el descuento es del 12%");
-                        precioFinal = precioInicial - (precioInicial * BOLA_ROJA);
+                        precioFinal = precioInicial - (precioInicial * DESCUENTO_BOLA_ROJA);
                     }
                     case 3 -> {
                         System.out.println("Ha salido el AMARILLO, el descuento es del 5%");
-                        precioFinal = precioInicial - (precioInicial * BOLA_MARILLA);
+                        precioFinal = precioInicial - (precioInicial * DESCUENTO_BOLA_MARILLA);
                     }
                 }
 
