@@ -4,6 +4,8 @@
  */
 package unit3;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,30 +26,122 @@ public class EjerClase2610 {
      */
     public static void main(String[] args) {
 
-        int numeroCiudades = Integer.parseInt(JOptionPane.showInputDialog("¿En cuántas ciudades están nuestras tiendas?"));
-        int numeroTiendas = numeroTiendas = Integer.parseInt(JOptionPane.showInputDialog("¿Cuántas tiendas hay en cada ciudad?"));
-        int numeroEmpleados = Integer.parseInt(JOptionPane.showInputDialog("¿Cuántos empleados hay en las tienda?"));
-        int numeroVentas = Integer.parseInt(JOptionPane.showInputDialog("¿Cuántas ventas han realizado los empleados?"));
-        double precioVentas = Double.parseDouble(JOptionPane.showInputDialog("¿De cuánto es la cantidad de las ventas?"));
-        double sumaTotal = 0;
-        double sumaTienda = 0;
-        double sumaEmpleado = 0;
+//        int numeroCiudades = 1;
+//        int numeroTiendas = 2;
+//        int numeroEmpleados = 3;
+//        double sumaEmpleado = 0;
+//
+//        for (int i = 1; i <= numeroCiudades; i++) {
+//            for (int j = 1; j <= numeroTiendas; j++) {
+//                System.out.println("Tienda " + j);
+//                for (int k = 1; k <= numeroEmpleados; k++) {
+//                    System.out.println("¿Cuánto ha vendido el empleado " + k + "?");
+//                    sumaEmpleado += teclado.nextDouble();
+//                    System.out.println(sumaEmpleado);
+//
+//                }
+//            }
+//        }
 
+        int numeroCiudades;
+        int numeroTiendasCiudad;
+        int numeroEmpleados;
+        final String TIENDA_CENTRAL = "Sucursal central";
+        double ventaEmpleado;
+        double ventaTotalTienda;
+        double ventaTotalCiudad;
+        double ventaTotalPais = 0;
+
+        //mensaje de bienvenida
+        System.out.printf("Bienvenido a %s \n", TIENDA_CENTRAL);
+        //preguntamos el número de ciudades con sucursal
+        System.out.println("¿En cuántas ciudades hay tiendas?");
+        numeroCiudades = pedirNumeroInt();
+        //número de tiendas en cada ciudad
+        System.out.println("¿Cuántas tiendas hay en cada ciudad? ");
+        numeroTiendasCiudad = pedirNumeroInt();
+        //número de empleados en cada tienda
+        System.out.println("¿Cuántos empleados tiene cada tienda? ");
+        numeroEmpleados = pedirNumeroInt();
+
+        //bucle for para recorrer las ciudades
         for (int i = 0; i < numeroCiudades; i++) {
-            for (int j = 0; j < numeroTiendas; j++) {
-                 sumaTienda += precioVentas;
+            ventaTotalCiudad = 0;
+            System.out.println("ciudad " + (i + 1) + ":");
+            //bucle for para recorrer cada tienda
+            for (int j = 0; j < numeroTiendasCiudad; j++) {
+                ventaTotalTienda = 0;
+                System.out.println("tienda " + (j + 1) + ":");
+                //bucle for para recorrer cada empleado
                 for (int k = 0; k < numeroEmpleados; k++) {
-                    sumaEmpleado += precioVentas;
-                    for (int l = 0; l < numeroVentas; l++) {
-                        sumaTotal += precioVentas;
-                    }
-                }
-            }
-        }
-        System.out.println("Cada empleado ha vendido: " + sumaEmpleado + "€");
-        System.out.println("En cada tienda se ha vendido: " + sumaTienda + "€");
-        System.out.println("El total del país es: " + sumaTotal + "€");
+                    ventaEmpleado = 0;
+                    System.out.println("¿Cúanto ha vendio en la "
+                            + "ciudad " + (i + 1) + " en la tienda " + (j + 1)
+                            + " el empleado " + (k + 1) + "?");
+                    ventaEmpleado = pedirNumeroDouble();
 
+                    ventaTotalTienda += ventaEmpleado;
+
+                }
+
+                System.out.println("En la tienda " + (j + 1) + " de la ciudad "
+                        + (i + 1) + ". Se ha vendido un total de "
+                        + ventaTotalTienda + "€");
+                System.out.println("\t**");
+                ventaTotalCiudad += ventaTotalTienda;
+
+            }
+
+            System.out.println("En la ciudad " + (i + 1) + " se ha vendido un "
+                    + "total de " + ventaTotalCiudad + "€");
+            System.out.println("\t**");
+            ventaTotalPais += ventaTotalCiudad;
+        }
+
+        System.out.println("En total se recauda: " + ventaTotalPais + "€");
+
+    }
+    
+    public static int pedirNumeroInt(){
+        Scanner teclado = new Scanner(System.in);
+        int numero = 0;
+        boolean mismatchExcept = false;
+        do {
+            try {
+                System.out.println("Número entre 1-10");
+                numero = teclado.nextInt();
+            } catch (InputMismatchException ime) {
+                teclado.nextLine();
+                System.out.println("Eso no es un número");
+                mismatchExcept = true;
+            }
+            if (!(numero >= 1 && numero <= 10)) {
+                System.out.println("Debe ser un número entre 1 y 10");
+            }
+        } while (!(numero >= 1 && numero <= 10) || mismatchExcept);
+
+        return numero;
+    }
+    
+    public static double pedirNumeroDouble(){
+        Scanner teclado = new Scanner(System.in);
+        double numero = 0;
+        boolean mismatchExcept = false;
+        do {
+            try {
+                System.out.println("Número entre 1-10");
+                numero = teclado.nextInt();
+            } catch (InputMismatchException ime) {
+                teclado.nextLine();
+                System.out.println("Eso no es un número");
+                mismatchExcept = true;
+            }
+            if (!(numero >= 1 && numero <= 10)) {
+                System.out.println("Debe ser un número entre 1 y 10");
+            }
+        } while (!(numero >= 1 && numero <= 10) || mismatchExcept);
+
+        return numero;
     }
 
 }
